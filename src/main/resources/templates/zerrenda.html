@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="eu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erabiltzaileen Zerrenda</title>
+</head>
+<body>
+    <h1>Erabiltzaileen Zerrenda</h1>
+
+    <table border="1" >
+            <tr>
+                <th>ID</th>
+                <th>Izena</th>
+                <th>Abizena</th>
+            </tr>      
+            <tr th:each="erabiltzailea : ${erabiltzaileak}">
+                <td th:text="${erabiltzailea.id}"></td>
+                <td th:text="${erabiltzailea.izena}"></td>
+                <td th:text="${erabiltzailea.abizena}"></td>
+				<td>
+					<a th:href="@{/erabiltzailea/edit/{id}(id=${erabiltzailea.id})}" >Edit</a>
+					<a th:href="@{/erabiltzailea/delete/{id}(id=${erabiltzailea.id})}" >Delete</a>
+				</td>
+            </tr>
+    </table>
+  
+    <div th:if="${erabiltzailea}">
+        <h2>Erabiltzailea Aukeratua</h2>
+        <p>ID: <span th:text="${erabiltzailea.id}"></span></p>
+        <p>Izena: <span th:text="${erabiltzailea.izena}"></span></p>
+        <p>Abizena: <span th:text="${erabiltzailea.abizena}"></span></p>
+    </div>
+	<a th:href="@{/erabiltzailea/new}">Sartu erabiltzaile Berria</a>
+</body>
+</html>

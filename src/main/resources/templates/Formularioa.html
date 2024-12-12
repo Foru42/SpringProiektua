@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erabiltzailea Formularioa</title>
+</head>
+<body>
+    <h4><span th:text="${id} ? 'Edit' : 'Sortu'"></span> erabiltzailea</h4>
+	
+    <form action="#"th:action="@{/erabiltzailea/new/submit}" th:object="${erabiltzailea}" method="post">
+		<input type="hidden" th:field="*{id}" id="id">
+        <div>
+            <label for="izena">Izena:</label>
+            <input type="text" id="izena" th:field="*{izena}" required>
+        </div>
+        <div>
+            <label for="abizena">Abizena:</label>
+            <input type="text" id="abizena" th:field="*{abizena}" required>
+        </div>
+        <div>
+            <button type="submit">Bidali</button>
+        </div>
+    </form>
+</body>
+</html>
